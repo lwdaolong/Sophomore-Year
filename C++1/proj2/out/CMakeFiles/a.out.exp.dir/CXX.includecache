@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ics45c/projects/proj2/app/arrayfunctionality.cpp
+arrayfunctionality.hpp
+/home/ics45c/projects/proj2/app/arrayfunctionality.hpp
+
+/home/ics45c/projects/proj2/app/arrayfunctionality.hpp
+iostream
+-
+

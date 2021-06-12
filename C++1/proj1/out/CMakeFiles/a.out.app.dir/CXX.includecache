@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ics45c/projects/proj1/app/gpslogic.hpp
+string
+-
+
+/home/ics45c/projects/proj1/app/main.cpp
+gpslogic.hpp
+/home/ics45c/projects/proj1/app/gpslogic.hpp
+string
+-
+iostream
+-
+

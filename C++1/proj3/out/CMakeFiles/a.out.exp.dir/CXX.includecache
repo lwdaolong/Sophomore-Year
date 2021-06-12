@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ics45c/projects/proj3/app/HashLinkedList.cpp
+HashLinkedList.hpp
+/home/ics45c/projects/proj3/app/HashLinkedList.hpp
+
+/home/ics45c/projects/proj3/app/HashLinkedList.hpp
+HashNode.hpp
+/home/ics45c/projects/proj3/app/HashNode.hpp
+iostream
+-
+
+/home/ics45c/projects/proj3/app/HashMap.cpp
+HashMap.hpp
+/home/ics45c/projects/proj3/app/HashMap.hpp
+
+/home/ics45c/projects/proj3/app/HashMap.hpp
+HashLinkedList.hpp
+/home/ics45c/projects/proj3/app/HashLinkedList.hpp
+functional
+-
+string
+-
+
+/home/ics45c/projects/proj3/app/HashNode.hpp
+string
+-
+
+/home/ics45c/projects/proj3/app/commands.cpp
+commands.hpp
+/home/ics45c/projects/proj3/app/commands.hpp
+
+/home/ics45c/projects/proj3/app/commands.hpp
+string
+-
+HashMap.hpp
+/home/ics45c/projects/proj3/app/HashMap.hpp
+

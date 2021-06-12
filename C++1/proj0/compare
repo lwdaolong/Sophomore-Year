@@ -1,0 +1,60 @@
+#!/bin/bash
+
+
+if [ $# -eq 1 ]; then
+    TEST_INPUT=$1
+else
+    echo "You'll need to provide test input in order to compare your program's"
+    echo "results to the solution.  Example:"
+    echo
+    echo "    ./compare 3"
+    echo
+    exit 1
+fi
+
+
+function cleanup()
+{
+    rm -rf $TEMP_DIR
+}
+
+
+SCRIPT_DIR=$(readlink -m $(dirname $0))
+
+$SCRIPT_DIR/require app
+
+
+if [ $? -ne 0 ]; then
+    echo "It doesn't appear that you've successfully built your program."
+    echo
+    exit 1
+fi
+
+
+TEMP_DIR=$(mktemp -d)
+
+trap cleanup EXIT
+
+
+echo $1 >$TEMP_DIR/test.in
+$SCRIPT_DIR/out/bin/a.out.app <$TEMP_DIR/test.in >$TEMP_DIR/student.out
+$SCRIPT_DIR/solution <$TEMP_DIR/test.in >$TEMP_DIR/solution.out
+
+diff $TEMP_DIR/student.out $TEMP_DIR/solution.out >$TEMP_DIR/diff.out
+
+
+if [ -s $TEMP_DIR/diff.out ]; then
+    echo "Differences were found between your program's output and the"
+    echo "output of the solution for the given test input.  Those"
+    echo "differences are displayed below:"
+    echo
+    cat $TEMP_DIR/diff.out
+    echo
+    exit 1
+else
+    echo "No differences were found.  Your program matches the solution"
+    echo "perfectly for the given test input."
+    echo
+    exit 0
+fi
+

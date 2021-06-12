@@ -1,0 +1,200 @@
+==12352== Memcheck, a memory error detector
+==12352== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==12352== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==12352== Command: /home/ics45c/projects/proj4/out/bin/a.out.app
+==12352== 
+==12083== 
+==12083== Process terminating with default action of signal 1 (SIGHUP)
+==12083==    at 0x4E3CA12: tcsetattr (tcsetattr.c:83)
+==12083==    by 0x48C4313: _nc_set_tty_mode_sp (in /usr/lib/x86_64-linux-gnu/libtinfo.so.6.2)
+==12083==    by 0x48C44A1: reset_prog_mode_sp (in /usr/lib/x86_64-linux-gnu/libtinfo.so.6.2)
+==12083==    by 0x489FC8D: doupdate_sp (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.2)
+==12083==    by 0x489A236: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.2)
+==12083==    by 0x48743BF: ??? (in /usr/lib/x86_64-linux-gnu/libpthread-2.31.so)
+==12083==    by 0x4E371E4: write (write.c:26)
+==12083==    by 0x4DB800C: _IO_file_write@@GLIBC_2.2.5 (fileops.c:1181)
+==12083==    by 0x4DB8927: new_do_write (fileops.c:449)
+==12083==    by 0x4DB8927: _IO_new_file_xsputn (fileops.c:1255)
+==12083==    by 0x4DB8927: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==12083==    by 0x4DAC540: fwrite (iofwrite.c:39)
+==12083==    by 0x49C75E0: ??? (in /usr/lib/llvm-11/lib/libc++abi.so.1.0)
+==12083==    by 0x49B068E: ??? (in /usr/lib/llvm-11/lib/libc++==12062== 
+==12062== HEAP SUMMARY:
+==12062==     in use at exit: 58,309 bytes in 516 blocks
+==12062==   total heap usage: 985 allocs, 469 frees, 185,593 bytes allocated
+==12062== 
+==12062== 8 ==12083== 37 bytes in 1 blocks are still reachable in loss record 8 of 54
+==12083==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12083==    by 0x495ED17: operator new(unsigned long) (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12083==    by 0x495FC5F: std::logic_error::logic_error(char const*) (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12083==    by 0x4968098: ??? (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12083==    by 0x4963E9E: ??? (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12083==    by 0x4963E7C: std::__1::__basic_string_common<true>::__throw_out_of_range() const (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12083==    by 0x4964F85: std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::basic_string(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long, unsigned long, std::__1::allocator<char> const&) (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12083==    by 0x40865D: std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::substr(unsigned long, unsigned long) const (string:3415)
+==12083==    by 0x40DC9C: (anonymous namespace)::placeText((anonymous namespace)::Area const&, EditorModel const&, int&, int&) (app/NcursesEditorView.cpp:260)
+==12083==    by 0x40D8A1: NcursesEditorView::refresh() (app/NcursesEditorView.cpp:300)
+==12083==    by 0x40B872: InteractionProcessor::run() (app/InteractionProcessor.cpp:63)
+==12083==    by 0x4038C1: BooEdit::run() (app/BooEdit.cpp:19)
+==12083== 
+==12083== 48 bytes in 1 blocks are still reachable in loss record 11 of 54
+==12083==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12083==    by 0x495ED17: operator new(unsigned long) (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12083==    by 0x496485F: std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__init(char const*, unsigned long) (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12083==    by 0x403B88: std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::basic_string<decltype(nullptr)>(char const*) (string:818)
+==12083==    by 0x410C8C: main (app/main.cpp:105)
+==12083== 
+==12083== 48 bytes in 3 blocks are definitely lost in loss record 13 of 54
+==12083==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12083==    by 0x495ED17: operator new(unsigned long) (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12083==    by 0x40D1BE: KeypressInteractionReader::nextInteraction() (app/KeypressInteractionReader.cpp:54)
+==12083==    by 0x40B678: InteractionProcessor::run() (app/InteractionProcessor.cpp:29)
+==12083==    by 0x4038C1: BooEdit::run() (app/BooEdit.cpp:19)
+==12083==    by 0x410F33: (anonymous namespace)::startBooEdit() (app/main.cpp:59)
+==12083==    by 0x410CA9: main (app/main.cpp:112)
+==12083== 
+==12083== 96 bytes in 1 blocks are still reachable in loss record 17 of 54
+==12083==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12083==    by 0x495ED17: operator new(unsigned long) (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12083==    by 0x409F6C: std::__1::__libcpp_allocate(unsigned long, unsigned long) (new:253)
+==12083==    by 0x409EA4: std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > >::allocate(unsigned long) (memory:1789)
+==12083==    by 0x409DAC: std::__1::allocator_traits<std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > >::allocate(std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > >&, unsigned long) (memory:1525)
+==12083==    by 0x409991: std::__1::__split_buffer<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > >&>::__split_buffer(unsigned long, unsigned long, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > >&) (__split_buffer:318)
+==12083==    by 0x408ABB: std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > >::insert(std::__1::__wrap_iter<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const*>, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (vector:1796)
+==12083==    by 0x407B35: EditorModel::createNewLine() (app/EditorModel.cpp:117)
+==12083==    by 0x4112D0: NewLineCommand::execute(EditorModel&) (app/newlinecommand.cpp:11)
+==12083==    by 0x40B9A1: InteractionProcessor::run() (app/InteractionProcessor.cpp:98)
+==12083==    by 0x4038C1: BooEdit::run() (app/BooEdit.cpp:19)
+==12083==    by 0x410F33: (anonymous namespace)::startBooEdit() (app/main.cpp:59)
+==12083== 
+==12083== 96 bytes in 6 blocks are definitely lost in loss record 18 of 54
+==12083==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12083==    by 0x495ED17: operator new(unsigned long) (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12083==    by 0x40D2C0: KeypressInteractionReader::nextInteraction() (app/KeypressInteractionReader.cpp:60)
+==12083==    by 0x40B678: InteractionProcessor::run() (app/InteractionProcessor.cpp:29)
+==12083==    by 0x4038C1: BooEdit::run() (app/BooEdit.cpp:19)
+==12083==    by 0x410F33: (anonymous namespace)::startBooEdit() (app/main.cpp:59)
+==12083==    by 0x410CA9: main (app/main.cpp:112)
+==12083== 
+==12083== 120 bytes in 5 blocks are definitely lost in loss record 23 of 54
+==12083==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12083==    by 0x495ED17: operator new(unsigned long) (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12083==    by 0x40D3DA: KeypressInteractionReader::nextInteraction() (app/KeypressInteractionReader.cpp:66)
+==12083==    by 0x40B678: InteractionProcessor::run() (app/InteractionProcessor.cpp:29)
+==12083==    by 0x4038C1: BooEdit::run() (app/BooEdit.cpp:19)
+==12083==    by 0x410F33: (anonymous namespace)::startBooEdit() (app/main.cpp:59)
+==12083==    by 0x410CA9: main (app/main.cpp:112)
+==12083== 
+==12083== 128 bytes in 8 blocks are definitely lost in loss record 25 of 54
+==12083==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12083==    by 0x495ED17: operator new(unsigned long) (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12083==    by 0x40D262: KeypressInteractionReader::nextInteraction() (app/KeypressInteractionReader.cpp:58)
+==12083==    by 0x40B678: InteractionProcessor::run() (app/InteractionProcessor.cpp:29)
+==12083==    by 0x4038C1: BooEdit::run() (app/BooEdit.cpp:19)
+==12083==    by 0x410F33: (anonymous namespace)::startBooEdit() (app/main.cpp:59)
+==12083==    by 0x410CA9: main (app/main.cpp:112)
+==12083== 
+==12083== 144 bytes in 1 blocks are still reachable in loss record 26 of 54
+==12083==    at 0x483E0F0: memalign (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12083==    by 0x483E212: posix_memalign (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12083==    by 0x49C7663: ??? (in /usr/lib/llvm-11/lib/libc++abi.so.1.0)
+==12083==    by 0x49C9499: __cxa_allocate_exception (in /usr/lib/llvm-11/lib/libc++abi.so.1.0)
+==12083==    by 0x4963E90: ??? (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12083==    by 0x4963E7C: std::__1::__basic_string_common<true>::__throw_out_of_range() const (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12083==    by 0x4964F85: std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::basic_string(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long, unsigned long, std::__1::allocator<char> const&) (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12083==    by 0x40865D: std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::substr(unsigned long, unsigned long) const (string:3415)
+==12083==    by 0x40DC9C: (anonymous namespace)::placeText((anonymous namespace)::Area const&, EditorModel const&, int&, int&) (app/NcursesEditorView.cpp:260)
+==12083==    by 0x40D8A1: NcursesEditorView::refresh() (app/NcursesEditorView.cpp:300)
+==12083==    by 0x40B872: InteractionProcessor::run() (app/InteractionProcessor.cpp:63)
+==12083==    by 0x4038C1: BooEdit::run() (app/BooEdit.cpp:19)
+==12083== 
+==12083== 144 bytes in 3 blocks are definitely lost in loss record 27 of 54
+==12083==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12083==    by 0x495ED17: operator new(unsigned long) (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12083==    by 0x40D438: KeypressInteractionReader::nextInteraction() (app/KeypressInteractionReader.cpp:68)
+==12083==    by 0x40B678: InteractionProcessor::run() (app/InteractionProcessor.cpp:29)
+==12083==    by 0x4038C1: BooEdit::run() (app/BooEdit.cpp:19)
+==12083==    by 0x410F33: (anonymous namespace)::startBooEdit() (app/main.cpp:59)
+==12083==    by 0x410CA9: main (app/main.cpp:112)
+==12083== 
+==12083== 152 bytes in 19 blocks are definitely lost in loss record 28 of 54
+==12083==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12083==    by 0x495ED17: operator new(unsigned long) (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12083==    by 0x40D16C: KeypressInteractionReader::nextInteraction() (app/KeypressInteractionReader.cpp:52)
+==12083==    by 0x40B678: InteractionProcessor::run() (app/InteractionProcessor.cpp:29)
+==12083==    by 0x4038C1: BooEdit::run() (app/BooEdit.cpp:19)
+==12083==    by 0x410F33: (anonymous namespace)::startBooEdit() (app/main.cpp:59)
+==12083==    by 0x410CA9: main (app/main.cpp:112)
+==12083== 
+==12083== 200 bytes in 25 blocks are definitely lost in loss record 30 of 54
+==12083==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12083==    by 0x495ED17: operator new(unsigned long) (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12083==    by 0x40D11A: KeypressInteractionReader::nextInteraction() (app/KeypressInteractionReader.cpp:50)
+==12083==    by 0x40B678: InteractionProcessor::run() (app/InteractionProcessor.cpp:29)
+==12083==    by 0x4038C1: BooEdit::run() (app/BooEdit.cpp:19)
+==12083==    by 0x410F33: (anonymous namespace)::startBooEdit() (app/main.cpp:59)
+==12083==    by 0x410CA9: main (app/main.cpp:112)
+==12083== 
+==12083== 1,200 bytes in 50 blocks are definitely lost in loss record 43 of 54
+==12083==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12083==    by 0x495ED17: operator new(unsigned long) (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12083==    by 0x40D49B: KeypressInteractionReader::nextInteraction() (app/KeypressInteractionReader.cpp:73)
+==12083==    by 0x40B678: InteractionProcessor::run() (app/InteractionProcessor.cpp:29)
+==12083==    by 0x4038C1: BooEdit::run() (app/BooEdit.cpp:19)
+==12083==    by 0x410F33: (anonymous namespace)::startBooEdit() (app/main.cpp:59)
+==12083==    by 0x410CA9: main (app/main.cpp:112)
+==12083== 
+==12083== LEAK SUMMARY:
+==12083==    definitely lost: 2,088 bytes in 119 blocks
+==12083==    indirectly lost: 0 bytes in 0 blocks
+==12083==      possibly lost: 0 bytes in 0 blocks
+==12083==    still reachable: 325 bytes in 4 blocks
+==12083==                       of which reachable via heuristic:
+==12083==                         stdstring          : 37 bytes in 1 blocks
+==12083==         suppressed: 54,944 bytes in 353 blocks
+==12083== 
+==12083== For lists of detected and suppressed errors, rerun with: -s
+==12083== ERROR SUMMARY: 8 errors from 8 contexts (suppressed: 0 from 0)
+C: (anonymous namespace)::placeText((anonymous namespace)::Area const&, EditorModel const&, int&, int&) (app/NcursesEditorView.cpp:260)
+==12062==    by 0x40D8A1: NcursesEditorView::refresh() (app/NcursesEditorView.cpp:300)
+==12062==    by 0x40B872: InteractionProcessor::run() (app/InteractionProcessor.cpp:63)
+==12062==    by 0x4038C1: BooEdit::run() (app/BooEdit.cpp:19)
+==12062== 
+==12062== 320 bytes in 40 blocks are definitely lost in loss record 35 of 57
+==12062==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12062==    by 0x495ED17: operator new(unsigned long) (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12062==    by 0x40D11A: KeypressInteractionReader::nextInteraction() (app/KeypressInteractionReader.cpp:50)
+==12062==    by 0x40B678: InteractionProcessor::run() (app/InteractionProcessor.cpp:29)
+==12062==    by 0x4038C1: BooEdit::run() (app/BooEdit.cpp:19)
+==12062==    by 0x410F33: (anonymous namespace)::startBooEdit() (app/main.cpp:59)
+==12062==    by 0x410CA9: main (app/main.cpp:112)
+==12062== 
+==12062== 504 bytes in 21 blocks are definitely lost in loss record 42 of 57
+==12062==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12062==    by 0x495ED17: operator new(unsigned long) (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12062==    by 0x40D3DA: KeypressInteractionReader::nextInteraction() (app/KeypressInteractionReader.cpp:66)
+==12062==    by 0x40B678: InteractionProcessor::run() (app/InteractionProcessor.cpp:29)
+==12062==    by 0x4038C1: BooEdit::run() (app/BooEdit.cpp:19)
+==12062==    by 0x410F33: (anonymous namespace)::startBooEdit() (app/main.cpp:59)
+==12062==    by 0x410CA9: main (app/main.cpp:112)
+==12062== 
+==12062== 1,776 bytes in 74 blocks are definitely lost in loss record 50 of 57
+==12062==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12062==    by 0x495ED17: operator new(unsigned long) (in /usr/lib/llvm-11/lib/libc++.so.1.0)
+==12062==    by 0x40D49B: KeypressInteractionReader::nextInteraction() (app/KeypressInteractionReader.cpp:73)
+==12062==    by 0x40B678: InteractionProcessor::run() (app/InteractionProcessor.cpp:29)
+==12062==    by 0x4038C1: BooEdit::run() (app/BooEdit.cpp:19)
+==12062==    by 0x410F33: (anonymous namespace)::startBooEdit() (app/main.cpp:59)
+==12062==    by 0x410CA9: main (app/main.cpp:112)
+==12062== 
+==12062== LEAK SUMMARY:
+==12062==    definitely lost: 2,992 bytes in 158 blocks
+==12062==    indirectly lost: 0 bytes in 0 blocks
+==12062==      possibly lost: 0 bytes in 0 blocks
+==12062==    still reachable: 373 bytes in 5 blocks
+==12062==                       of which reachable via heuristic:
+==12062==                         stdstring          : 37 bytes in 1 blocks
+==12062==         suppressed: 54,944 bytes in 353 blocks
+==12062== 
+==12062== For lists of detected and suppressed errors, rerun with: -s
+==12062== ERROR SUMMARY: 10 errors from 10 contexts (suppressed: 0 from 0)
