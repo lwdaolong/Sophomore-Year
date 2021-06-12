@@ -1,0 +1,71 @@
+Index: columns_logic.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- columns_logic.py	(date 1605855129451)
++++ columns_logic.py	(date 1605855129451)
+@@ -128,6 +128,9 @@
+             temp_faller.fall()
+             if '[' not in temp_faller.game_piece[0] and '|' not in temp_faller.game_piece[0]:
+                 self.check_entire_board_matching()
++                if temp_faller.pending:
++                    self.clear_matching_jewels()
++                    
+         else:
+             self.clear_matching_jewels()
+             self.check_entire_board_matching()
+@@ -380,8 +383,9 @@
+         else:
+             return False
+ 
+-    def check_entire_board_matching(self):
++    def check_entire_board_matching(self) -> bool:
+         # checks each position on the board for matches and marks all matching jewels
++        match_made = False
+         for i in range(1,len(self.game_board)-1,1):
+             for j in  range(len(self.game_board[i]) -1):
+                 match_list = []
+@@ -392,6 +396,8 @@
+                 if True in match_list:
+                     self.game_board[i][j] = self._create_matching_jewel(
+                         self.game_board[i][j][1])  # only if one returns true
++                    match_made = True
++        return match_made
+ 
+     def clear_matching_jewels(self):
+         #clears matching jewels from the board
+@@ -409,6 +415,7 @@
+ 
+         self.row = -1 #pointer of head of faller (bottommost element)
+         # Starts at -1 because data exists outside gameboard
++        self.pending = False
+         self.game_board = board.game_board
+         self.game_state = board
+         self.game_piece =[self.game_state._create_faller_jewel(j1),
+@@ -431,7 +438,7 @@
+             elif '|' in self.game_piece[0]: #faller is landed and must bre frozen
+                 self.freeze_faller()
+                 self.draw_faller()
+-                self.game_state.active_faller = None #dereferences faller once its frozen
++                #dereferences faller once its frozen
+ 
+     def freeze_faller(self)->None:
+         for i in range(len(self.game_piece)):
+@@ -440,8 +447,14 @@
+         #After checking for matches, if not all of the fall is on the screen, gameover
+         if self.row +1 - len(self.game_piece) < 0:
+             self.draw_faller()
+-            self.game_state.draw_board()
+-            self.game_state.game_over_method()
++            if(self.game_state.check_entire_board_matching() == True):
++                self.pending = True
++            else:
++                self.game_state.active_faller = None
++                self.game_state.draw_board()
++                self.game_state.game_over_method()
++        else:
++            self.game_state.active_faller = None
+ 
+     def land_faller(self)->None:
+         for i in range(len(self.game_piece)):
